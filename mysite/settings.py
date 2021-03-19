@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-from . import secrets
+
+from . import local_settings
+
+# from . import production_settings as local_settings
+# from . import development_settings as local_settings
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,12 +27,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&w6qb0k@u%8czee%^psyu0w6!2vfnw#763363)vy*$5fee_xpo'
+SECRET_KEY = local_settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = local_settings.DEBUG
 
-ALLOWED_HOSTS = secrets.ALLOWED_HOSTS
+ALLOWED_HOSTS = local_settings.ALLOWED_HOSTS
 
 
 # Application definition
